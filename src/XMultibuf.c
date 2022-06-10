@@ -177,7 +177,7 @@ static Status event_to_wire (Display *dpy, XEvent *libevent, xEvent *netevent)
  * read_buffer_info - read Buffer Info descriptors from the net; if unable
  * to allocate memory, read junk to make sure that stream is clear.
  */
-#define TALLOC(type,count) Xmalloc ((unsigned) count * sizeof(type))
+#define TALLOC(type,count) Xcalloc ((unsigned) count, sizeof(type))
 
 static XmbufBufferInfo *read_buffer_info (Display *dpy, int nbufs)
 {

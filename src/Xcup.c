@@ -156,7 +156,7 @@ XcupGetReservedColormapEntries(
 	}
 	_XRead (dpy, (char*) rbufp, nbytes);
 
-	*colors_out = Xmalloc (nentries  * sizeof (XColor));
+	*colors_out = Xcalloc (nentries, sizeof (XColor));
 	if (*colors_out) {
 	    xColorItem* cs = (xColorItem *) rbufp;
 	    XColor* cd = *colors_out;

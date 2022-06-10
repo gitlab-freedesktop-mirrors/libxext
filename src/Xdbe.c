@@ -348,7 +348,7 @@ XdbeScreenVisualInfo *XdbeGetVisualInfo (
 
     /* allocate list of visual information to be returned */
     if ((*num_screens > 0) && (*num_screens < 65536))
-        scrVisInfo = Xmalloc(*num_screens * sizeof(XdbeScreenVisualInfo));
+        scrVisInfo = Xcalloc(*num_screens, sizeof(XdbeScreenVisualInfo));
     else
         scrVisInfo = NULL;
     if (scrVisInfo == NULL) {

@@ -54,9 +54,7 @@ in this Software without prior written authorization from The Open Group.
 #include <X11/extensions/extutil.h>
 #include <X11/extensions/ge.h>
 
-/* defined in Xge.c */
-extern _X_HIDDEN Bool
-xgeExtRegister(Display* dpy, int extension, XExtensionHooks* callbacks);
+#include "extutilP.h"
 
 /*
  * XextCreateExtension - return an extension descriptor containing context

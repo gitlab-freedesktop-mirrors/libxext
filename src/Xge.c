@@ -39,6 +39,8 @@
 #include <X11/extensions/extutil.h>
 #include <X11/extensions/Xge.h>
 
+#include "extutilP.h"
+
 /***********************************************************************/
 /*                    internal data structures                         */
 /***********************************************************************/

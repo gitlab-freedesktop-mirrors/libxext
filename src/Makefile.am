@@ -27,6 +27,7 @@ libXext_la_SOURCES = \
 	Xdbe.c \
         Xge.c \
 	extutil.c \
+	extutilP.h \
 	globals.c
 
 libXextincludedir = $(includedir)/X11/extensions

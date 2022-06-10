@@ -543,7 +543,7 @@ void XmbufChangeBufferAttributes (
  * 	mono_info_return is set to NULL.  Similarly, stereo_info_return is
  * 	set according to nstereo_return.  The storage returned in
  * 	mono_info_return and stereo_info_return may be released by XFree.
- * 	If no errors are encounted, non-zero will be returned.
+ * 	If no errors are encountered, non-zero will be returned.
  */
 Status XmbufGetScreenInfo (
     Display *dpy,

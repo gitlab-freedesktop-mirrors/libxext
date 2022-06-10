@@ -170,12 +170,12 @@ XcupGetReservedColormapEntries(
 		cd->blue = cs->blue;
 		cs = (xColorItem*) (((char*) cs) + SIZEOF(xColorItem));
 	    }
-	    if (rbufp != rbuf) XFree ((char*) rbufp);
+	    if (rbufp != rbuf) XFree (rbufp);
 	    UnlockDisplay(dpy);
     	    SyncHandle();
 	    return True;
 	}
-	if (rbufp != rbuf) XFree ((char*) rbufp);
+	if (rbufp != rbuf) XFree (rbufp);
     }
     UnlockDisplay(dpy);
     SyncHandle();
@@ -251,7 +251,7 @@ XcupStoreColors(
 	    xcp->blue = cs->blue;
 	    xcp->flags = cs->flags;
 	}
-	if (rbufp != rbuf) XFree ((char*)rbufp);
+	if (rbufp != rbuf) XFree (rbufp);
 
 	UnlockDisplay(dpy);
 	SyncHandle();

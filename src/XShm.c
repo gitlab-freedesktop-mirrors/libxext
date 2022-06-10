@@ -262,7 +262,7 @@ Bool XShmDetach(Display *dpy, XShmSegmentInfo *shminfo)
 
 static int _XShmDestroyImage (XImage *ximage)
 {
-	Xfree((char *)ximage);
+	Xfree(ximage);
 	return 1;
 }
 

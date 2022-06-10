@@ -201,7 +201,7 @@ static XmbufBufferInfo *read_buffer_info (Display *dpy, int nbufs)
 		c->depth = net->depth;
 	    }
 	}
-	Xfree ((char *) netbuf);
+	Xfree (netbuf);
     } else {				/* eat the data */
 	while (netbytes > 0) {
 	    char dummy[256];		/* stack size vs loops tradeoff */
@@ -576,8 +576,8 @@ Status XmbufGetScreenInfo (
 
     /* check for bad reads indicating we need to return an error */
     if ((nmono > 0 && !minfo) || (nstereo > 0 && !sinfo)) {
-	if (minfo) Xfree ((char *) minfo);
-	if (sinfo) Xfree ((char *) sinfo);
+	if (minfo) Xfree (minfo);
+	if (sinfo) Xfree (sinfo);
 	UnlockDisplay (dpy);
 	SyncHandle();
 	return 0;

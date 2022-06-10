@@ -372,14 +372,14 @@ XdbeScreenVisualInfo *XdbeGetVisualInfo (
             scrVisInfo[i].visinfo = NULL;
 
         /* if we can not allocate the list of visual/depth info
-         * then free the lists that we already allocate as well
+         * then free the lists that we already allocated as well
          * as the visual info list itself
          */
         if (scrVisInfo[i].visinfo == NULL) {
             for (j = 0; j < i; j++) {
-                Xfree ((char *)scrVisInfo[j].visinfo);
+                Xfree (scrVisInfo[j].visinfo);
             }
-            Xfree ((char *)scrVisInfo);
+            Xfree (scrVisInfo);
             _XEatDataWords(dpy, rep.length);
             UnlockDisplay (dpy);
             SyncHandle ();

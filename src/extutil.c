@@ -82,7 +82,7 @@ void XextDestroyExtension (XExtensionInfo *info)
     info->head = NULL;			/* to catch refs after this */
     info->cur = NULL;
     info->ndisplays = 0;
-    XFree ((char *) info);
+    XFree (info);
 }
 
 
@@ -202,7 +202,7 @@ int XextRemoveDisplay (XExtensionInfo *extinfo, Display *dpy)
     if (dpyinfo == extinfo->cur) extinfo->cur = NULL;  /* flush cache */
     _XUnlockMutex(_Xglobal_lock);
 
-    Xfree ((char *) dpyinfo);
+    Xfree (dpyinfo);
     return 1;
 }
 

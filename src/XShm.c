@@ -280,7 +280,7 @@ XImage *XShmCreateImage (
 {
     register XImage *image;
 
-    image = (XImage *)Xcalloc(1, (unsigned)sizeof(XImage));
+    image = Xcalloc(1, sizeof(XImage));
     if (!image)
 	return image;
     image->data = data;

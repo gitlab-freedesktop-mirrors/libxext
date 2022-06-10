@@ -63,8 +63,7 @@ in this Software without prior written authorization from The Open Group.
  */
 XExtensionInfo *XextCreateExtension (void)
 {
-    register XExtensionInfo *info =
-      (XExtensionInfo *) Xmalloc (sizeof (XExtensionInfo));
+    register XExtensionInfo *info = Xmalloc (sizeof (XExtensionInfo));
 
     if (info) {
 	info->head = NULL;
@@ -101,7 +100,7 @@ XExtDisplayInfo *XextAddDisplay (
 {
     XExtDisplayInfo *dpyinfo;
 
-    dpyinfo = (XExtDisplayInfo *) Xmalloc (sizeof (XExtDisplayInfo));
+    dpyinfo = Xmalloc (sizeof (XExtDisplayInfo));
     if (!dpyinfo) return NULL;
     dpyinfo->display = dpy;
     dpyinfo->data = data;

@@ -177,7 +177,7 @@ static Status event_to_wire (Display *dpy, XEvent *libevent, xEvent *netevent)
  * read_buffer_info - read Buffer Info descriptors from the net; if unable
  * to allocate memory, read junk to make sure that stream is clear.
  */
-#define TALLOC(type,count) ((type *) Xmalloc ((unsigned) count * sizeof(type)))
+#define TALLOC(type,count) Xmalloc ((unsigned) count * sizeof(type))
 
 static XmbufBufferInfo *read_buffer_info (Display *dpy, int nbufs)
 {
@@ -405,7 +405,7 @@ Status XmbufGetWindowAttributes (
     attr->buffers = (Multibuffer *) NULL;
     if ((attr->nbuffers = rep.length)) {
 	int nbytes = rep.length * sizeof(Multibuffer);
-	attr->buffers = (Multibuffer *) Xmalloc((unsigned) nbytes);
+	attr->buffers = Xmalloc((unsigned) nbytes);
 	nbytes = rep.length << 2;
 	if (! attr->buffers) {
 	    _XEatDataWords(dpy, rep.length);

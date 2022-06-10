@@ -126,7 +126,7 @@ Status XeviGetVisualInfo(
 	return BadValue;
     }
     if (!n_visual || !visual) {		/* copy the all visual */
-    	temp_visual = (VisualID32 *)Xmalloc(sz_VisualID32 * sz_info);
+	temp_visual = Xmalloc(sz_VisualID32 * sz_info);
     	n_visual = 0;
         for (vinfoIndex = 0; vinfoIndex < sz_info; vinfoIndex++)
 	    if (notInList(temp_visual, n_visual, vinfo[vinfoIndex].visualid))
@@ -146,7 +146,7 @@ Status XeviGetVisualInfo(
 	        return BadValue;
 	    }
 	}
-	temp_visual = (VisualID32 *)Xmalloc(sz_VisualID32 * n_visual);
+	temp_visual = Xmalloc(sz_VisualID32 * n_visual);
         for (visualIndex = 0; visualIndex < n_visual; visualIndex++)
 	    temp_visual[visualIndex] = visual[visualIndex];
     }

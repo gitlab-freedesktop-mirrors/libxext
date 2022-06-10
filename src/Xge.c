@@ -143,7 +143,7 @@ _xgeCheckExtInit(Display* dpy, XExtDisplayInfo* info)
 
     if (!info->data)
     {
-        XGEData* data = (XGEData*)Xmalloc(sizeof(XGEData));
+        XGEData* data = Xmalloc(sizeof(XGEData));
         if (!data) {
             goto cleanup;
         }
@@ -192,7 +192,7 @@ _xgeGetExtensionVersion(Display* dpy,
         return NULL;
     }
 
-    vers = (XGEVersionRec*)Xmalloc(sizeof(XGEVersionRec));
+    vers = Xmalloc(sizeof(XGEVersionRec));
     vers->major_version = rep.majorVersion;
     vers->minor_version = rep.minorVersion;
     return vers;
@@ -315,7 +315,7 @@ _X_HIDDEN xgeExtRegister(Display* dpy, int offset, XExtensionHooks* callbacks)
 
     xge_data = (XGEData*)info->data;
 
-    newExt = (XGEExtNode*)Xmalloc(sizeof(XGEExtNode));
+    newExt = Xmalloc(sizeof(XGEExtNode));
     if (!newExt)
     {
         fprintf(stderr, "xgeExtRegister: Failed to alloc memory.\n");

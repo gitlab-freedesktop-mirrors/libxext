@@ -443,8 +443,7 @@ XdbeBackBufferAttributes *XdbeGetBackBufferAttributes(
 
     DbeCheckExtension(dpy, info, (XdbeBackBufferAttributes *)NULL);
 
-    if (!(attr =
-       (XdbeBackBufferAttributes *)Xmalloc(sizeof(XdbeBackBufferAttributes)))) {
+    if (!(attr = Xmalloc(sizeof(XdbeBackBufferAttributes)))) {
         return NULL;
     }
 

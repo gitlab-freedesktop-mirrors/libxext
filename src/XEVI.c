@@ -31,6 +31,7 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #include <X11/extensions/extutil.h>
 #include <X11/Xutil.h>
 #include <limits.h>
+#include "reallocarray.h"
 
 static XExtensionInfo *xevi_info;/* needs to move to globals.c */
 static const char *xevi_extension_name = EVINAME;
@@ -146,7 +147,7 @@ Status XeviGetVisualInfo(
 	        return BadValue;
 	    }
 	}
-	temp_visual = Xmalloc(sz_VisualID32 * n_visual);
+	temp_visual = Xmallocarray(n_visual, sz_VisualID32);
         for (visualIndex = 0; visualIndex < n_visual; visualIndex++)
 	    temp_visual[visualIndex] = visual[visualIndex];
     }

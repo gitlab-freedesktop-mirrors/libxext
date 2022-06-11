@@ -40,6 +40,7 @@ AC_SUBST(XEXT_SOREV)
 PKG_CHECK_MODULES(XEXT, [xproto >= 7.0.13] [x11 >= 1.6] [xextproto >= 7.1.99])
 
 AX_GCC_BUILTIN([__builtin_popcountl])
+AC_REPLACE_FUNCS([reallocarray])
 
 # Allow checking code with lint, sparse, etc.
 XORG_WITH_LINT

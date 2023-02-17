@@ -4,7 +4,7 @@
 # Please see the ci-templates documentation for details:
 # https://freedesktop.pages.freedesktop.org/ci-templates/
 
-.templates_sha: &template_sha 34f4ade99434043f88e164933f570301fd18b125 # see https://docs.gitlab.com/ee/ci/yaml/#includefile
+.templates_sha: &template_sha fddab8aa63e89a8e65214f59860d9c0f030360c9 # see https://docs.gitlab.com/ee/ci/yaml/#includefile
 
 
 include:
@@ -27,12 +27,13 @@ stages:
 
 variables:
   FDO_UPSTREAM_REPO: 'xorg/lib/libXext'
-  FDO_DISTRIBUTION_VERSION: 'stable'
+  # 'testing' needed to get autoconf >= 2.70 in Debian as of 2023-02-16
+  FDO_DISTRIBUTION_VERSION: 'testing'
   # The tag should be updated each time the list of packages is updated.
   # Changing a tag forces the associated image to be rebuilt.
   # Note: the tag has no meaning, we use a date format purely for readability
-  FDO_DISTRIBUTION_TAG:  '2022-06-10.0'
-  FDO_DISTRIBUTION_PACKAGES: 'git gcc pkgconf autoconf automake libtool make xutils-dev x11proto-dev libx11-dev xmlto xorg-sgml-doctools w3m xsltproc fop'
+  FDO_DISTRIBUTION_TAG:  '2023-02-16.1'
+  FDO_DISTRIBUTION_PACKAGES: 'git gcc pkgconf autoconf automake libtool make xutils-dev x11proto-dev libx11-dev xmlto xorg-sgml-doctools w3m xsltproc fop xz-utils'
 
 
 #

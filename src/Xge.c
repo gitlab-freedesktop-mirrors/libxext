@@ -188,7 +188,6 @@ _xgeGetExtensionVersion(Display* dpy,
 
     if (!_XReply (dpy, (xReply *) &rep, 0, xTrue))
     {
-        Xfree(info);
         return NULL;
     }
 

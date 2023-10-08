@@ -208,7 +208,7 @@ _xgeDpyClose(Display* dpy, XExtCodes* codes)
 {
     XExtDisplayInfo *info = _xgeFindDisplay(dpy);
 
-    if (info->data != NULL) {
+    if (info != NULL && info->data != NULL) {
         XGEData* xge_data = (XGEData*)info->data;
 
         if (xge_data->extensions)

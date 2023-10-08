@@ -192,8 +192,10 @@ _xgeGetExtensionVersion(Display* dpy,
     }
 
     vers = Xmalloc(sizeof(XGEVersionRec));
-    vers->major_version = rep.majorVersion;
-    vers->minor_version = rep.minorVersion;
+    if (vers != NULL) {
+        vers->major_version = rep.majorVersion;
+        vers->minor_version = rep.minorVersion;
+    }
     return vers;
 }
 

@@ -34,26 +34,11 @@ from The Open Group.
 #endif
 #include <X11/Xlib.h>
 #include <X11/extensions/Xext.h>
-#include <stddef.h>			/* for definition of NULL */
-
-/*
- * If possible, it is useful to have the global data default to a null value.
- * Some shared library implementations are *much* happier if there isn't any
- * global initialized data.
- */
-#ifdef NULL_NOT_ZERO			/* then need to initialize */
-#define SetZero(t,var,z) t var = z
-#else
-#define SetZero(t,var,z) t var
-#endif
-
-#define ZEROINIT(t,var,val) SetZero (t, var, val)
-
 
 /*
  * Error handlers; used to be in XlibInt.c
  */
-ZEROINIT (XextErrorHandler, _XExtensionErrorFunction, NULL);
+XextErrorHandler _XExtensionErrorFunction;
 
 /*
  * NOTE: any additional external definition NEED

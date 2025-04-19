@@ -28,35 +28,33 @@
 XeviQueryExtension, XeviQueryVersion, XeviGetVisualInfo \- X Extended
 Visual Information functions
 .SH SYNOPSIS
+.nf
 \&#include <X11/extensions/XEVI.h>
 
-Bool
-XeviQueryExtension (Display *dpy);
-.LP
-Bool
-XeviQueryVersion (Display *dpy,
-.nf
-    int *major_version_return,
-    int *minor_version_return);
-.fi
-.LP
-int
-XeviGetVisualInfo (Display *dpy, VisualID *visual,
-.nf
-    int n_visual, ExtendedVisualInfo ** evi_return,
-    int * n_info_return);
+\fBBool\fP
+\fBXeviQueryExtension\fP (\fBDisplay *\fP\fIdpy\fP);
+
+\fBBool\fP
+\fBXeviQueryVersion\fP (\fBDisplay *\fP\fIdpy\fP,
+    \fBint *\fP\fImajor_version_return\fP,
+    \fBint *\fP\fIminor_version_return\fP);
+
+\fBint
+\fBXeviGetVisualInfo\fP (\fBDisplay *\fP\fIdpy\fP, \fBVisualID *\fP\fIvisual\fP,
+    \fBint\fP \fIn_visual\fP, \fBExtendedVisualInfo **\fP\fIevi_return\fP,
+    \fBint *\fP\fIn_info_return\fP);
 .fi
 .SH DESCRIPTION
 The
 X11 Extended Visual Information extension (EVI) allows a client to determine
 information about core X visuals beyond what the core protocol provides.
-
+.PP
 The EVI application programming library contains the interfaces described below.
 With the exception of
 .BR XeviQueryExtension ,
 if any of these routines are
-called with a display that does not support the extension, the
-ExtensionErrorHandler (which can be set with
+called with a display that does not support the extension,
+the ExtensionErrorHandler (which can be set with
 .B XSetExtensionErrorHandler
 and functions the same way as
 .BR XSetErrorHandler )
@@ -69,8 +67,8 @@ if the Extended Visual Information extension is available on the given display.
 A client must call
 .B XeviQueryExtension
 before calling any other EVI
-function in order to negotiate a compatible protocol version; otherwise
-the client will get undefined behavior
+function in order to negotiate a compatible protocol version;
+otherwise the client will get undefined behavior
 (EVI may or may not work).
 .PP
 .B XeviQueryVersion
@@ -85,9 +83,9 @@ and
 .B XeviGetVisualInfo
 returns a list of ExtendedVisualInfo structures that describe
 visual information beyond that supported by the core protocol.
-This includes
-layer information relevant for systems supporting overlays and/or underlay
-planes, and information that allows applications better to determine the level
+This includes layer information relevant for systems
+supporting overlays and/or underlay planes,
+and information that allows applications better to determine the level
 of hardware support for multiple colormaps.
 XeviGetVisualInfo returns
 .B Success
@@ -131,16 +129,15 @@ and
 number uniquely specify the visual being described.
 .LP
 .I level
-returns the level number for the visual, 0 for normal planes, > 0 for
-overlays, < 0 for underlays.
+returns the level number for the visual, 0 for normal planes,
+> 0 for overlays, < 0 for underlays.
 .LP
 .I
 transparency_type
 returns the type of transparency supported by the visual.
-XEVI_TRANSPARENCY_NONE if
-there are no transparent pixels, XEVI_TRANSPARENCY_PIXEL if the visual supports
-a transparent pixel, XEVI_TRANSPARENCY_MASK if the visual supports transparent
-plane(s).
+XEVI_TRANSPARENCY_NONE if there are no transparent pixels,
+XEVI_TRANSPARENCY_PIXEL if the visual supports a transparent pixel,
+XEVI_TRANSPARENCY_MASK if the visual supports transparent plane(s).
 .LP
 .I transparency_value
 returns the pixel/plane value to set for transparency if transparency_type isn't
@@ -158,8 +155,8 @@ returns the number of elements in
 This array returns a list of visuals that may cause conflicts in the use of the
 hardware colormap.
 For example, if a 12-bit hardware colormap is overloaded to
-support 8-bit colormaps, the corresponding 8-bit visuals would conflict with the
-12-bit visuals.
+support 8-bit colormaps,
+the corresponding 8-bit visuals would conflict with the 12-bit visuals.
 
 .SH ERRORS
 .B XeviGetVisualInfo

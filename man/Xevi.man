@@ -23,22 +23,22 @@
 .\" dealing in this Software without prior written authorization from
 .\" Silicon Graphics, Inc.
 .\"
-.TH XEVI __libmansuffix__ __xorgversion__ "X FUNCTIONS"
+.TH XEVI __libmansuffix__ 1997-12-24 __xorgversion__
 .SH NAME
 XeviQueryExtension, XeviQueryVersion, XeviGetVisualInfo \- X Extended
 Visual Information functions
 .SH SYNOPSIS
 .nf
 \&#include <X11/extensions/XEVI.h>
-
+.sp
 \fBBool\fP
 \fBXeviQueryExtension\fP (\fBDisplay *\fP\fIdpy\fP);
-
+.sp
 \fBBool\fP
 \fBXeviQueryVersion\fP (\fBDisplay *\fP\fIdpy\fP,
     \fBint *\fP\fImajor_version_return\fP,
     \fBint *\fP\fIminor_version_return\fP);
-
+.sp
 \fBint
 \fBXeviGetVisualInfo\fP (\fBDisplay *\fP\fIdpy\fP, \fBVisualID *\fP\fIvisual\fP,
     \fBint\fP \fIn_visual\fP, \fBExtendedVisualInfo **\fP\fIevi_return\fP,
@@ -157,7 +157,6 @@ hardware colormap.
 For example, if a 12-bit hardware colormap is overloaded to
 support 8-bit colormaps,
 the corresponding 8-bit visuals would conflict with the 12-bit visuals.
-
 .SH ERRORS
 .B XeviGetVisualInfo
 will return
